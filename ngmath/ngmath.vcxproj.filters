@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="argument">
+      <UniqueIdentifier>{880EDA40-74DB-344C-9DF4-22F489206ADA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="context">
+      <UniqueIdentifier>{CA9A79D3-367A-F86E-3F92-8345ABF05ED0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="functions">
+      <UniqueIdentifier>{1E42AB58-8AAC-5FCF-D3EA-10753F943D24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="functions\fundamental">
+      <UniqueIdentifier>{DC0ED9FE-487B-94F9-116F-2C577D9AB661}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="memory">
+      <UniqueIdentifier>{DEA8820D-CA4A-ADE3-B305-C1379F463434}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="numerical">
+      <UniqueIdentifier>{E5781AB4-51E3-CE2A-9A21-80D006CBAC7F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\argument\argument.h">
+      <Filter>argument</Filter>
+    </ClInclude>
+    <ClInclude Include="src\context\context.h">
+      <Filter>context</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core.h" />
+    <ClInclude Include="src\errors.h" />
+    <ClInclude Include="src\functions\fundamental\lib.h">
+      <Filter>functions\fundamental</Filter>
+    </ClInclude>
+    <ClInclude Include="src\memory\allocater.h">
+      <Filter>memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\memory\block.h">
+      <Filter>memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\memory\memory.h">
+      <Filter>memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ngmath.h" />
+    <ClInclude Include="src\ngmobj.h" />
+    <ClInclude Include="src\ngmpch.h" />
+    <ClInclude Include="src\numerical\numerical.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="src\numerical\numerical_defs.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="src\numerical\numerical_hash.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="src\numerical\numerical_types.h">
+      <Filter>numerical</Filter>
+    </ClInclude>
+    <ClInclude Include="src\log\logger.h" />
+    <ClInclude Include="src\argument\argument_set.h" />
+    <ClInclude Include="src\memory\obj_id.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\context\context.cpp">
+      <Filter>context</Filter>
+    </ClCompile>
+    <ClCompile Include="src\memory\memory.cpp">
+      <Filter>memory</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ngmath.cpp" />
+    <ClCompile Include="src\ngmpch.cpp" />
+    <ClCompile Include="src\log\logger.cpp" />
+  </ItemGroup>
+</Project>
