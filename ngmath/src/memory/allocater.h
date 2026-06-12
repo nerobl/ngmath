@@ -10,23 +10,34 @@ namespace ngmath {
 
 	struct _allocater_obj {
 		virtual ~_allocater_obj() {}
+		virtual void set_offset(size_t offset) = 0;
 		virtual void set(void* _obj) = 0;
-		virtual obj_type_id* make_id(void* _obj) = 0;
-		virtual size_t get_id_size() = 0;
+		virtual void make_id(void* data, size_t idoffset) const = 0;
+		virtual size_t get_id_size() const = 0;
+		virtual size_t get_offset() const = 0;
 		virtual obj_type_id* get_type_id() = 0;
+		virtual obj_type_id* get_next(size_t& offset) const = 0;
 	};
 
 	template<typename T>
 	struct allocater_obj : public _allocater_obj {
 		obj_id<T> id;
 		T* obj = nullptr;
+		inline void set_offset(size_t offset) override { id.offset = offset; }
 		inline void set(void* _obj) override { obj = (T*)_obj; }
-		obj_type_id* make_id(void* _obj) override {
-			obj_id<T>* _id = new (_obj) obj_id<T>();
-			return _id;
+		inline void make_id(void* data, size_t idoffset) const override {
+			obj_id<T>* _id = (obj_id<T>*)((uint8_t*)data + idoffset);
+			new (_id) obj_id<T>();
+			_id->elements = id.elements;
+			_id->offset = id.offset;
 		}
-		inline size_t get_id_size() override { return sizeof(obj_id<T>); }
+		inline size_t get_id_size() const override { return sizeof(obj_id<T>); }
+		inline size_t get_offset() const override { return id.offset; }
 		inline obj_type_id* get_type_id() override { return &id; }
+		obj_type_id* get_next(size_t& offset) const override {
+			offset += sizeof(obj_id<T>);
+			return (obj_type_id*)((uint8_t*)this + sizeof(obj_id<T>));
+		}
 
 		inline T* operator->() { return obj; }
 		inline T& operator*() { return *obj; }
@@ -51,11 +62,8 @@ namespace ngmath {
 			size_t size = 0;
 			intializer_func func;
 			inline void trigger(void* data, size_t idoffset) { 
-				obj->set(func(offset, data)); 
-				void* idloc = (void*)((uint8_t*)data + idoffset);
-				obj_type_id* id = obj->make_id(idloc);
-				id->offset = offset;
-				id->elements = obj->get_type_id()->elements;
+				obj->set(func(obj->get_offset(), data));
+				obj->make_id(data, idoffset);
 			}
 		};
 

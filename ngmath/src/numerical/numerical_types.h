@@ -58,7 +58,7 @@ namespace ngmath {
 
 
 	template<numerical_type T> struct underlying_numerical_data_type;
-	template<numerical_data_type D> struct underlying_numerical_data_type <real<D >> { using type = D; };
+	template<numerical_data_type D> struct underlying_numerical_data_type<real<D>> { using type = D; };
 	template<numerical_data_type D> struct underlying_numerical_data_type<complex<D>> { using type = D; };
 	template<numerical_data_type D> struct underlying_numerical_data_type<quaternion<D>> { using type = D; };
 	template<numerical_type T> using underlying_numerical_data_type_t = typename underlying_numerical_data_type<T>::type;
@@ -82,6 +82,8 @@ namespace ngmath {
 	template<numerical_data_type D> struct numerical_type_hash<quaternion<D>> {
 		static constexpr NumericalHashComponent val = 3;
 	};
+
+	//NGM_DEFINE_TYPE_LOG_FORMAT(real<double>, "%f");
 	
 }
 

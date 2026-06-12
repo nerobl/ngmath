@@ -7,11 +7,17 @@
     <Filter Include="context">
       <UniqueIdentifier>{CA9A79D3-367A-F86E-3F92-8345ABF05ED0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="debug">
+      <UniqueIdentifier>{2CA5490F-98B9-71C0-613B-1520CD0E6EF1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="functions">
       <UniqueIdentifier>{1E42AB58-8AAC-5FCF-D3EA-10753F943D24}</UniqueIdentifier>
     </Filter>
     <Filter Include="functions\fundamental">
       <UniqueIdentifier>{DC0ED9FE-487B-94F9-116F-2C577D9AB661}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="log">
+      <UniqueIdentifier>{078D880B-7396-887C-FC11-9F7C681A947C}</UniqueIdentifier>
     </Filter>
     <Filter Include="memory">
       <UniqueIdentifier>{DEA8820D-CA4A-ADE3-B305-C1379F463434}</UniqueIdentifier>
@@ -19,18 +25,33 @@
     <Filter Include="numerical">
       <UniqueIdentifier>{E5781AB4-51E3-CE2A-9A21-80D006CBAC7F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="variable">
+      <UniqueIdentifier>{6B736B9E-5740-C6A9-8059-B4516C85FB37}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\argument\argument.h">
+      <Filter>argument</Filter>
+    </ClInclude>
+    <ClInclude Include="src\argument\argument_set.h">
       <Filter>argument</Filter>
     </ClInclude>
     <ClInclude Include="src\context\context.h">
       <Filter>context</Filter>
     </ClInclude>
     <ClInclude Include="src\core.h" />
+    <ClInclude Include="src\debug\utils.h">
+      <Filter>debug</Filter>
+    </ClInclude>
     <ClInclude Include="src\errors.h" />
     <ClInclude Include="src\functions\fundamental\lib.h">
       <Filter>functions\fundamental</Filter>
+    </ClInclude>
+    <ClInclude Include="src\log\formatter.h">
+      <Filter>log</Filter>
+    </ClInclude>
+    <ClInclude Include="src\log\logger.h">
+      <Filter>log</Filter>
     </ClInclude>
     <ClInclude Include="src\memory\allocater.h">
       <Filter>memory</Filter>
@@ -39,6 +60,9 @@
       <Filter>memory</Filter>
     </ClInclude>
     <ClInclude Include="src\memory\memory.h">
+      <Filter>memory</Filter>
+    </ClInclude>
+    <ClInclude Include="src\memory\obj_id.h">
       <Filter>memory</Filter>
     </ClInclude>
     <ClInclude Include="src\ngmath.h" />
@@ -56,19 +80,30 @@
     <ClInclude Include="src\numerical\numerical_types.h">
       <Filter>numerical</Filter>
     </ClInclude>
-    <ClInclude Include="src\log\logger.h" />
-    <ClInclude Include="src\argument\argument_set.h" />
-    <ClInclude Include="src\memory\obj_id.h" />
+    <ClInclude Include="src\variable\variable.h">
+      <Filter>variable</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\argument\argument_set.cpp">
+      <Filter>argument</Filter>
+    </ClCompile>
     <ClCompile Include="src\context\context.cpp">
       <Filter>context</Filter>
+    </ClCompile>
+    <ClCompile Include="src\log\formatter.cpp">
+      <Filter>log</Filter>
+    </ClCompile>
+    <ClCompile Include="src\log\logger.cpp">
+      <Filter>log</Filter>
+    </ClCompile>
+    <ClCompile Include="src\memory\block.cpp">
+      <Filter>memory</Filter>
     </ClCompile>
     <ClCompile Include="src\memory\memory.cpp">
       <Filter>memory</Filter>
     </ClCompile>
     <ClCompile Include="src\ngmath.cpp" />
     <ClCompile Include="src\ngmpch.cpp" />
-    <ClCompile Include="src\log\logger.cpp" />
   </ItemGroup>
 </Project>

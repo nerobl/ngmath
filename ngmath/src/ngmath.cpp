@@ -2,7 +2,7 @@
 #include "ngmath.h"
 #include "memory/memory.h"
 #include "log/logger.h"
-#include "argument/argument_set.h"
+#include "context/context.h"
 #include <stdio.h>
 
 namespace ngmath {
@@ -11,10 +11,11 @@ namespace ngmath {
 
 	void init() {
 
+		//printf("\033[31mInitializing ngmath...\033[0m\n");
 		printf("Initializing ngmath...\n");
-		memory::init();
-		printf("Finished initializing ngmath.\n");
+		initialize_ngmath_memory();
 
+		NGM_LOG_DEBUG("Finished initializing ngmath.");
 	}
 
 	void shutdown()

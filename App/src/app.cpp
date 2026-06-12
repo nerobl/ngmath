@@ -1,7 +1,7 @@
 #include <ngmath.h>
 
 
-void main()
+int main()
 {
 	ngmath::init();
 	ngmath::sandbox();

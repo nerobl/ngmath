@@ -77,6 +77,7 @@
       <PrecompiledHeaderFile>ngmpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NGM_PLATFORM_WINDOWS;NGM_CONFIG_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -102,6 +103,7 @@
       <PrecompiledHeaderFile>ngmpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NGM_PLATFORM_WINDOWS;NGM_CONFIG_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -131,6 +133,7 @@
       <PrecompiledHeaderFile>ngmpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NGM_PLATFORM_WINDOWS;NGM_CONFIG_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -159,8 +162,10 @@
     <ClInclude Include="src\argument\argument_set.h" />
     <ClInclude Include="src\context\context.h" />
     <ClInclude Include="src\core.h" />
+    <ClInclude Include="src\debug\utils.h" />
     <ClInclude Include="src\errors.h" />
     <ClInclude Include="src\functions\fundamental\lib.h" />
+    <ClInclude Include="src\log\formatter.h" />
     <ClInclude Include="src\log\logger.h" />
     <ClInclude Include="src\memory\allocater.h" />
     <ClInclude Include="src\memory\block.h" />
@@ -173,10 +178,14 @@
     <ClInclude Include="src\numerical\numerical_defs.h" />
     <ClInclude Include="src\numerical\numerical_hash.h" />
     <ClInclude Include="src\numerical\numerical_types.h" />
+    <ClInclude Include="src\variable\variable.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\argument\argument_set.cpp" />
     <ClCompile Include="src\context\context.cpp" />
+    <ClCompile Include="src\log\formatter.cpp" />
     <ClCompile Include="src\log\logger.cpp" />
+    <ClCompile Include="src\memory\block.cpp" />
     <ClCompile Include="src\memory\memory.cpp" />
     <ClCompile Include="src\ngmath.cpp" />
     <ClCompile Include="src\ngmpch.cpp">

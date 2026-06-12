@@ -27,6 +27,10 @@ project "ngmath"
 		"%{prj.name}/src/**.cpp"
 	}
 
+	includedirs {
+		"%{prj.name}/src"
+	}
+
 filter "system:windows"
 	cppdialect "C++20"
 	cdialect "c17"
